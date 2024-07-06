@@ -1,6 +1,6 @@
 const HeroSection = () => {
   return (
-    <section className="bg-cream px-10 pt-10 rounded-2xl overflow-hidden self-center relative lg:w-10/12">
+    <section className="bg-cream px-10 pt-10 rounded-2xl overflow-hidden self-center relative lg:w-11/12">
       <div className="flex items-center gap-8 ">
         <div className="relative lg:-bottom-10 lg:w-full xl:-bottom-10 z-50">
           <img
