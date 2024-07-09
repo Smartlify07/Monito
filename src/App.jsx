@@ -19,7 +19,7 @@ function App() {
       <>
         <Route element={<RootLayout />}>
           <Route path="/" element={<HomePage />}></Route>
-          <Route path="/puppy/:id" element={<SingleProductPage />} />
+          <Route path="/products/:id" element={<SingleProductPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
         </Route>

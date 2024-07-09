@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useDispatch } from "react-redux";
 import { addToCart } from "../store/cart/cartSlice";
+import { Link } from "react-router-dom";
 
 const CallToAction = ({ image, name, price, gender, age, id }) => {
   const dispatch = useDispatch();
@@ -19,9 +20,12 @@ const CallToAction = ({ image, name, price, gender, age, id }) => {
         />
         <span className="hidden lg:block">Add to cart</span>
       </button>
-      <button className="bg-[#0C7050] transition-all text-sm w-8/12 text-white font-medium  rounded-xl py-2 px-6 hover:bg-primary lg:w-11/12 xl:justify-normal xl:gap-1 xl:w-auto">
+      <Link
+        to={`/products/${id}`}
+        className="bg-[#0C7050] text-center transition-all text-sm w-8/12 text-white font-medium  rounded-xl py-2 px-6 hover:bg-primary lg:w-11/12 xl:justify-normal xl:gap-1 xl:w-auto"
+      >
         Buy now
-      </button>
+      </Link>
     </div>
   );
 };
