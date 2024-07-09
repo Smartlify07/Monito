@@ -5,7 +5,7 @@ import PricesFilter from "./PricesFilter";
 
 const FilterSidebar = () => {
   return (
-    <aside className="lg:w-1/4 flex flex-col gap-5">
+    <aside className="hidden flex-col gap-5 lg:flex  lg:w-1/4">
       <h3 className="text-primary text-lg font-bold lg:text-xl xl:text-2xl">
         Filter
       </h3>
