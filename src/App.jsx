@@ -1,35 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
+import RootLayout from "./app/layout/RootLayout";
+import HomePage from "./Routes/HomePage/HomePage";
+import { Provider } from "react-redux";
+import { store } from "./app/store/store";
+import SingleProductPage from "./Routes/SingleProductPage/SingleProductPage";
+import CartPage from "./Routes/Cart/CartPage";
+import CheckoutPage from "./Routes/Checkout/CheckoutPage";
+import SuccessPage from "./Routes/SuccessPage";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <>
+        <Route element={<RootLayout />}>
+          <Route path="/" element={<HomePage />}></Route>
+          <Route path="/puppy/:id" element={<SingleProductPage />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
+        </Route>
+        <Route path="/success" element={<SuccessPage />} />
+      </>
+    )
+  );
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Provider store={store}>
+      <RouterProvider router={router}></RouterProvider>
+    </Provider>
+  );
 }
 
-export default App
+export default App;
