@@ -7,7 +7,7 @@ const RightSection = ({ product }) => {
   return (
     <section className="w-full lg:w-6/12">
       <Breadcrumbs />
-      <ProductDetails productInfo={product.info} />
+      <ProductDetails id={product.id} productInfo={product.info} />
       <div className="block lg:hidden">
         <ProductPerks />
       </div>
