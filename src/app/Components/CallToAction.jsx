@@ -2,8 +2,6 @@
 import { useDispatch } from "react-redux";
 import { addToCart } from "../store/cart/cartSlice";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
-import CartMessage from "./CartMessage";
 
 const CallToAction = ({ image, name, price, gender, age, id }) => {
   const dispatch = useDispatch();

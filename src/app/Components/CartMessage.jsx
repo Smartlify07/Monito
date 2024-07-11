@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 const CartMessage = ({ message }) => {
   return (
     <div className="flex items-center justify-center lg:justify-end py-4 px-4">
