@@ -7,25 +7,17 @@ import CartMessage from "./CartMessage";
 
 const CallToAction = ({ image, name, price, gender, age, id }) => {
   const dispatch = useDispatch();
-  const notify = (message) => {
-    toast(<CartMessage closeToast={true} message={message} />, {
-      className: "text-white",
-      progressClassName: "bg-green-500",
-      autoClose: 5000,
-    });
-  };
 
   const handleAddToCart = () => {
     dispatch(addToCart(image, name, price, gender, age, id));
   };
   return (
-    <div className="flex  items-center gap-2 my-2 xl:flex-row">
+    <div className="flex   flex-col items-center gap-2 my-2 xl:flex-row">
       <button
         onClick={() => {
           handleAddToCart();
-          notify("Added to cart");
         }}
-        className="bg-gray-6 text-sm  flex items-center justify-center gap-2 text-primary font-medium transition-all rounded-xl py-2 px-5 lg:w-11/12 xl:justify-normal xl:gap-2 xl:w-auto hover:bg-[#C9C9CD]"
+        className="bg-gray-6 text-sm w-10/12 flex items-center justify-center gap-2 text-primary font-medium transition-all rounded-xl py-2 px-5 lg:w-11/12 xl:justify-normal xl:gap-2 xl:w-auto hover:bg-[#C9C9CD]"
       >
         <img
           className="w-[20px] lg:w-auto"
@@ -35,7 +27,7 @@ const CallToAction = ({ image, name, price, gender, age, id }) => {
       </button>
       <Link
         to={`/products/${id}`}
-        className="bg-[#0C7050] text-center transition-all text-sm w-8/12 text-white font-medium  rounded-xl py-2 px-6 hover:bg-primary lg:w-11/12 xl:justify-normal xl:gap-1 xl:w-auto"
+        className="bg-[#0C7050] w-10/12 text-center transition-all text-sm  text-white font-medium  rounded-xl py-2 px-6 hover:bg-primary lg:w-11/12 xl:justify-normal xl:gap-1 xl:w-auto"
       >
         Buy now
       </Link>

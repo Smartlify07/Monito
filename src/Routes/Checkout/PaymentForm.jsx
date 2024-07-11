@@ -19,7 +19,7 @@ const PaymentForm = () => {
               Card Details
             </label>
             <div className="flex  items-center justify-between lg:gap-3 lg:flex-row">
-              <div className="w-6/12 lg:w-7/12">
+              <div className="w-4/12 lg:w-7/12">
                 <TextInput
                   type="number"
                   name="cardNo"
@@ -29,7 +29,7 @@ const PaymentForm = () => {
               <div className="w-3/12 lg:w-2/12">
                 <TextInput type="text" name="expiry" placeholder="MM/YY" />
               </div>
-              <div className="w-2/12 lg:w-2/12">
+              <div className="w-3/12 lg:w-2/12">
                 <TextInput type="number" name="cvc" placeholder="CVC" />
               </div>
             </div>

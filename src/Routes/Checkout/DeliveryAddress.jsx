@@ -28,7 +28,7 @@ const DeliveryAddress = () => {
           />
 
           <div className="flex items-baseline gap-4 lg:justify-between lg:flex-row">
-            <div className="w-5/12 lg:w-4/12">
+            <div className="w-4/12 lg:w-4/12">
               <TextInput
                 label={"State"}
                 name="state"
@@ -44,7 +44,7 @@ const DeliveryAddress = () => {
                 name="country"
               />
             </div>
-            <div className="w-2/12 lg:w-3/12">
+            <div className="w-3/12 lg:w-3/12">
               <TextInput
                 label={"ZIP Code"}
                 type="number"
