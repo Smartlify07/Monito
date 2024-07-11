@@ -2,20 +2,17 @@ import { Link, useLocation } from "react-router-dom";
 
 const Breadcrumbs = () => {
   const location = useLocation();
-  let currentLink = "";
   const crumbs = location.pathname
     .split("/")
     .filter((crumb) => crumb !== "")
     .map((crumb) => {
-      currentLink += `${crumb}`;
       return (
-        <Link
+        <p
           className="text-[#667479] flex items-center gap-2 text-sm font-medium"
           key={crumb}
-          to={"/" + currentLink}
         >
           {crumb} <span>{">"}</span>
-        </Link>
+        </p>
       );
     });
 
