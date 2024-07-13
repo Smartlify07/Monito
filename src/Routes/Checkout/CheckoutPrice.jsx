@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import { useCallback } from "react";
 import { selectAllPrices } from "../../app/store/cart/cartSlice";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 
-const CheckoutPrice = () => {
+const CheckoutPrice = ({ children }) => {
   const totalPrice = useSelector(selectAllPrices);
+  console.log(children);
 
   const handleSubTotal = useCallback(() => {
     return totalPrice;
@@ -42,13 +43,7 @@ const CheckoutPrice = () => {
           NGN {getTotalPrice().toLocaleString()}
         </p>
       </div>
-
-      <Link
-        to={"/success"}
-        className="bg-[#0C7050] flex items-center justify-center rounded-[10px] py-[14px] px-[6px] text-sm text-[#FDFDFD] font-semibold transition-all mt-5 lg:mt-0 hover:bg-primary"
-      >
-        Pay NGN {getTotalPrice().toLocaleString()}
-      </Link>
+      {children}
     </section>
   );
 };

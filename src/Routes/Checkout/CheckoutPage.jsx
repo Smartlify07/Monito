@@ -2,13 +2,18 @@ import Breadcrumbs from "../../app/Components/Breadcrumbs";
 import DeliveryAddress from "./DeliveryAddress";
 import PaymentDetails from "./PaymentDetails";
 import ShippingMethod from "./ShippingMethod";
-import CheckoutPrice from "./CheckoutPrice";
 import CheckoutSummary from "./CheckoutSummary";
-import { Formik } from "formik";
+import { Form, Formik } from "formik";
 import * as Yup from "yup";
-import CartSummary from "../Cart/CartSummary";
+import { memo } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectAllCartItems } from "../../app/store/cart/cartSlice";
 
 const CheckoutPage = () => {
+  const navigate = useNavigate();
+  const checkoutItems = useSelector(selectAllCartItems);
+
   return (
     <section className="flex font-intertight  lg:px-0 lg:py-10 items-center justify-center">
       <div className="lg:w-11/12 xl:w-10/12 w-full flex flex-col lg:pt-20 lg:gap-10">
@@ -37,26 +42,29 @@ const CheckoutPage = () => {
               cardHolder: Yup.string().required(),
               billingAddress: Yup.string().required(),
             })}
+            onSubmit={() => {
+              console.log("Submit");
+              if (checkoutItems.length > 0) {
+                navigate("/success");
+              }
+            }}
           >
-            <>
-              <div className="flex flex-col order-2  lg:items-baseline justify-between lg:order-1 lg:w-5/12 lg:gap-4">
+            <Form className="flex  justify-between gap-5">
+              <div className="flex flex-col order-2 w-full  lg:items-baseline justify-between lg:order-1 lg:w-6/12 lg:gap-4">
                 <DeliveryAddress />
                 <ShippingMethod />
                 <PaymentDetails />
-                <div className="hidden border border-black lg:hidden">
-                  <CheckoutPrice />
-                </div>
               </div>
 
-              <div className="hidden  lg:order-2 lg:w-6/12 lg:block">
+              <div className="hidden   lg:order-2 lg:w-6/12 lg:block">
                 <CheckoutSummary />
               </div>
-            </>
+            </Form>
           </Formik>
         </div>
       </div>
     </section>
   );
 };
-
-export default CheckoutPage;
+const memoCheckoutPage = memo(CheckoutPage);
+export default memoCheckoutPage;

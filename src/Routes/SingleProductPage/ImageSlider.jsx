@@ -4,6 +4,7 @@ import { useState } from "react";
 const ImageSlider = ({ productThumbnails }) => {
   const [currentImageSlide, setCurrentImageSlide] = useState(0);
   let maxSlide = productThumbnails.length - 1;
+
   const slideLeft = () => {
     setCurrentImageSlide((prevState) =>
       prevState === 0 ? maxSlide : prevState - 1
@@ -24,8 +25,9 @@ const ImageSlider = ({ productThumbnails }) => {
       </span>
       <img
         src={productThumbnails[currentImageSlide]}
-        className="w-full object-cover lg:w-auto lg:rounded-lg "
+        className="w-full h-[400px] object-center object-cover lg:w-full lg:h-[476px] lg:rounded-lg "
         alt="mainimage"
+        loading="lazy"
       />
       <span
         onClick={slideRight}

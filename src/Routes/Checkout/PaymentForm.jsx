@@ -1,8 +1,9 @@
-import { Formik } from "formik";
 import TextInput from "../../app/Components/TextInput";
 import CheckoutPrice from "./CheckoutPrice";
+import useTotalPrice from "../../hooks/useTotalPrice";
 
 const PaymentForm = () => {
+  const price = useTotalPrice();
   return (
     <div className="bg-white  w-full px-4 rounded-md py-4 lg:bg-transparent lg:px-5 lg:w-full lg:shadow-md">
       <>
@@ -50,7 +51,15 @@ const PaymentForm = () => {
         </div>
       </>
 
-      <CheckoutPrice />
+      <CheckoutPrice>
+        <button
+          type="submit"
+          to={"/success"}
+          className="bg-[#0C7050] flex items-center justify-center rounded-[10px] py-[14px] px-[6px] text-sm text-[#FDFDFD] font-semibold transition-all mt-5 lg:mt-0 hover:bg-primary"
+        >
+          Pay NGN {price.toLocaleString()}
+        </button>
+      </CheckoutPrice>
     </div>
   );
 };
