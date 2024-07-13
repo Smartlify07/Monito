@@ -21,6 +21,7 @@ export default {
         "black-2": "#00171F",
         silver: "#CECECE",
         tan: "#FFF7CE",
+        red2: "#A31111",
       },
 
       fontFamily: {
@@ -29,5 +30,6 @@ export default {
       },
     },
   },
-  plugins: [],
+  // eslint-disable-next-line no-undef
+  plugins: [require("@shrutibalasa/tailwind-grid-auto-fit")],
 };

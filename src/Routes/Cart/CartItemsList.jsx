@@ -9,6 +9,8 @@ const CartItemsList = () => {
   const handleClearCart = () => {
     dispatch(clearCart());
   };
+
+  console.log(cartItems[0]);
   return (
     <div className="flex flex-col mt-7 lg:mt-10 w-full gap-6 shadow-md rounded-b-lg p-3 bg-[#EAEAEA] lg:shadow-none">
       <button

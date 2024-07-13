@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 const CartLeftSection = () => {
   const totalPrice = useSelector(selectAllPrices);
+  console.log(totalPrice);
 
   const total = useCallback(() => {
     return totalPrice.toLocaleString();

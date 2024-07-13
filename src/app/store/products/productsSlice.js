@@ -282,7 +282,7 @@ import axios from "axios";
 const organization_id = "3b523079443545d5872b9824d56f2749";
 const APP_ID = "2SD5SGHMXRQL9HX";
 const API_KEY = "c9207e066fde4243a9cfe11a4c856c0f20240712210311470927";
-const PRODUCTS_URL = `/api/products?organization_id=${organization_id}&Appid=${APP_ID}&Apikey=${API_KEY}`;
+const PRODUCTS_URL = `/api/products?organization_id=${organization_id}&reverse_sort=false&size=10&Appid=${APP_ID}&Apikey=${API_KEY}`;
 
 const productsAdapter = createEntityAdapter();
 const initialState = productsAdapter.getInitialState({
@@ -322,6 +322,24 @@ const productsSlice = createSlice({
       .addCase(fetchProducts.fulfilled, (state, action) => {
         state.status = "successful";
         const products = action.payload;
+        products.map((product) => {
+          product.info = {
+            sku: "#00178",
+            gender: "Female",
+            age: 6,
+            size: "Small",
+            color: "Apricot & Tan",
+            vaccinated: true,
+            dewormed: true,
+            certified: true,
+            certification: "MKA",
+            microchip: true,
+            location: "Vietnam",
+            publishedDate: "12-Oct-2022",
+            extra:
+              ": Pure breed Shih Tzu.Good body structure.With MKA cert and Microchip.Father from champion lineage.",
+          };
+        });
         productsAdapter.upsertMany(state, products);
         console.log(action.payload);
       })

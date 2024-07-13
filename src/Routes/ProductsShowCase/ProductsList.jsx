@@ -19,13 +19,13 @@ const ProductsList = () => {
     if (status === "loading") {
       return <p> Loading...</p>;
     } else if (status === "successful") {
-      console.log(products[0]);
+      console.log(products);
     }
   }, [dispatch, status]);
 
   return (
     <section className="py-5 px-2 flex flex-col items-center justify-center w-full">
-      <div className="grid justify-items-center w-full gap-3 grid-cols-2 lg:gap-5 lg:grid-cols-3">
+      <div className="grid   w-full gap-1 grid-cols-2 md:grid-cols-2 lg:grid-auto-fit ">
         {products.map((product) => (
           <ProductItem key={product.id} {...product} />
         ))}

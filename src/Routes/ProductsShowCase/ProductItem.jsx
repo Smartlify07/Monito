@@ -10,21 +10,19 @@ const ProductItem = ({
   age,
   id,
 }) => {
-  console.log(photos[0]);
-  const image = `https://api.timbu.cloud/images/${photos[0].url}`;
+  // console.log(photos[0]);
+  let image = photos[0]
+    ? `https://api.timbu.cloud/images/${photos[0].url}`
+    : "";
 
   return (
-    <div className="bg-gray-1 flex flex-col gap-1   rounded-lg py-2 px-2 shadow-md lg:w-[320px]">
-      <img
-        src={image}
-        className="rounded-lg w-[350px] h-[250px] object-left-top object-cover"
-      />
-
+    <div className="bg-gray-1 flex flex-col  gap-1 w-full rounded-lg lg:w-auto py-2 px-2 shadow-md ">
       <LazyLoadImage
         placeholder={
-          <div className="bg-white md:w-[300px] md:h-[200px] rounded-sm"></div>
+          <div className="bg-white md:w-[264px] md:h-[264px] rounded-sm"></div>
         }
-        className="rounded-sm object-cover w-full"
+        className="rounded-lg w-full h-[250px] md:w-full md:h-[264px] object-center object-cover"
+        src={image ? image : ""}
       />
       <div className="flex flex-col justify-center gap-1 px-1">
         <h3 className="text-primary font-bold mt-2">{name}</h3>

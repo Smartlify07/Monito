@@ -2,6 +2,8 @@
 import QuantitiyPicker from "./QuantitiyPicker";
 
 const CartItem = ({ checkout, id, name, gender, price, count, image }) => {
+  console.log(image);
+  console.log(price);
   return (
     <div className="p-5 border font-intertight border-[#A1A1AA] gap-4 rounded-md flex">
       <div className="bg-[#E4E4E7] h-[92px] w-[92px]  p-[6px] rounded-xl lg:w-auto">

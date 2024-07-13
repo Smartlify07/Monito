@@ -10,12 +10,12 @@ const CallToAction = ({ image, name, price, gender, age, id }) => {
     dispatch(addToCart(image, name, price, gender, age, id));
   };
   return (
-    <div className="flex flex-col items-center gap-2 my-2 lg:flex-row">
+    <div className="flex flex-col  items-center gap-2 my-2 lg:flex-row">
       <button
         onClick={() => {
           handleAddToCart();
         }}
-        className="bg-gray-6 text-sm w-10/12 flex items-center justify-center gap-2 text-primary font-medium transition-all rounded-xl py-2 px-5 lg:w-11/12 xl:justify-normal xl:gap-2 xl:w-auto hover:bg-[#C9C9CD]"
+        className="bg-gray-6 text-sm w-11/12 flex items-center justify-center gap-2 text-primary font-medium transition-all rounded-xl py-2 px-5 lg:w-11/12 xl:justify-normal xl:gap-2 xl:w-auto hover:bg-[#C9C9CD]"
       >
         <img
           className="w-[20px] lg:w-auto"
@@ -25,7 +25,7 @@ const CallToAction = ({ image, name, price, gender, age, id }) => {
       </button>
       <Link
         to={`/products/${id}`}
-        className="bg-[#0C7050] w-10/12 text-center transition-all text-sm  text-white font-medium  rounded-xl py-2 px-6 hover:bg-primary lg:w-11/12 xl:justify-normal xl:gap-1 xl:w-auto"
+        className="bg-[#0C7050] w-11/12 text-center transition-all text-sm  text-white font-medium  rounded-xl py-2 px-6 hover:bg-primary lg:w-11/12 xl:justify-normal xl:gap-1 xl:w-auto"
       >
         Buy now
       </Link>
