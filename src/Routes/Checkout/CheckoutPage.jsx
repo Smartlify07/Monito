@@ -7,9 +7,12 @@ import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import { memo } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectAllCartItems } from "../../app/store/cart/cartSlice";
 
 const CheckoutPage = () => {
   const navigate = useNavigate();
+  const checkoutItems = useSelector(selectAllCartItems);
 
   return (
     <section className="flex font-intertight  lg:px-0 lg:py-10 items-center justify-center">
@@ -41,7 +44,9 @@ const CheckoutPage = () => {
             })}
             onSubmit={() => {
               console.log("Submit");
-              navigate("/success");
+              if (checkoutItems.length > 0) {
+                navigate("/success");
+              }
             }}
           >
             <Form className="flex  justify-between gap-5">
