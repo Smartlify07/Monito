@@ -12,6 +12,8 @@ import SingleProductPage from "./Routes/SingleProductPage/SingleProductPage";
 import CartPage from "./Routes/Cart/CartPage";
 import CheckoutPage from "./Routes/Checkout/CheckoutPage";
 import SuccessPage from "./Routes/SuccessPage";
+import { useEffect } from "react";
+import axios from "axios";
 
 function App() {
   const router = createBrowserRouter(

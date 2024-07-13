@@ -10,7 +10,7 @@ const CallToAction = ({ image, name, price, gender, age, id }) => {
     dispatch(addToCart(image, name, price, gender, age, id));
   };
   return (
-    <div className="flex   flex-col items-center gap-2 my-2 xl:flex-row">
+    <div className="flex flex-col items-center gap-2 my-2 lg:flex-row">
       <button
         onClick={() => {
           handleAddToCart();
